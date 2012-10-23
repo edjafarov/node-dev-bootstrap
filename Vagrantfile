@@ -14,6 +14,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "git"
     chef.add_recipe "vim"
     chef.add_recipe "phantomjs"
+#    chef.add_recipe "imagemagick"
     chef.json = {
       "nodejs" => {
         "version" => "0.8.12",
