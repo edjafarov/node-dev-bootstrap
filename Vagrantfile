@@ -9,16 +9,16 @@ Vagrant::Config.run do |config|
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/app", "1"]
 
   config.vm.provision :chef_solo do |chef|
-    chef.add_recipe "nodejs"
-    chef.add_recipe "mongodb-debs"
-    chef.add_recipe "redis-server"
+    chef.add_recipe "chef-mongodb"
+    chef.add_recipe "nodejs-cookbook"
+    chef.add_recipe "git"
+    chef.add_recipe "vim"
+    chef.add_recipe "phantomjs"
     chef.json = {
       "nodejs" => {
-        "version" => "0.8.8"
-        # uncomment the following line to force
-	# recent versions (> 0.8.4) to be built from
-	# the source code
-	# , "from_source" => true
+        "version" => "0.8.12",
+        "install_method" => "source",
+        "npm" => "1.1.62"
       }
     }
   end
