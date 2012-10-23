@@ -1,6 +1,6 @@
 Vagrant::Config.run do |config|
   config.vm.box = "base"
-
+  config.ssh.forward_agent = true
   config.vm.forward_port 3000, 3000
 
   config.vm.share_folder "app", "/home/vagrant/app", "app"
