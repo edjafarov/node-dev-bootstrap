@@ -8,7 +8,7 @@ Vagrant::Config.run do |config|
 
   # allow for symlinks in the app folder
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/app", "1"]
-  config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  config.vm.customize ["modifyvm", :id, "--memory", 512, "--cpus", 1]
   
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "chef-hosts"
