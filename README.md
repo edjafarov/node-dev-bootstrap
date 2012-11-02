@@ -1,4 +1,4 @@
-This is a Vagrant file and set of Chef recipes for building a basic node development environment.
+This is a Vagrant file and set of Chef recipes for building a basic nodejs development environment.
 If you're not familiar with Vagrant, read more about it at http://www.vagrantup.com.
 
 To get this to work, you must have VirtualBox (> 4.1.0) and Vagrant (> 1.0) installed. Installers
@@ -7,29 +7,39 @@ at http://www.vagrantup.com.
 
 Once you have the pre-requisites installed, simply open a terminal and add the base box:
 
-    vagrant box add base http://files.vagrantup.com/lucid32.box
+    vagrant box add ubuntu https://dl.dropbox.com/u/1543052/Boxes/UbuntuServer12.04amd64.box
 
 Next, clone this repository 
 
-    git clone https://github.com/semmypurewal/node-dev-bootstrap.git my_project
+    git clone https://github.com/edjafarov/node-dev-bootstrap my_project
 
 Finally, change to your new project directory and start your VM:
 
     cd my_project
     vagrant up
 
-After a few minutes, you should have a virtual dev environment with node, npm, mongodb and redis.
-The app folder is shared, and port 3000 on the VM is forwarded to port 3000 on the localhost. This
+After a few minutes, you should have a virtual dev environment with node, npm, mongodb, git.
+The app folder is shared, and port 3000,8080 on the VM is forwarded to port 3000,8080 on the localhost. This
 is all customizable in the Vagrantfile.
 
 You can test out your environment by ssh'ing into your environment and running the sample script:
 
-    vagrant ssh
+    vagrant ssh - not working for win
     cd app
     node server.js
 
 Next open localhost:3000 in your web browser. If everything worked correctly, you should see
 'Hello World'
+
+## sshing through windows
+
+Do ```vagrant ssh```, it will give you path to ssh-key file you need to use. Putty though won't be able to use it. You need to use PuttyGen to open the key-file and save it in format that putty will understand. Than you will be able to use it.
+
+
+
+
+
+
 
 ## Note to Windows Users
 
