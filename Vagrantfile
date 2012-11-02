@@ -1,8 +1,7 @@
 Vagrant::Config.run do |config|
   config.vm.box = "ubuntu"
   config.ssh.forward_agent = true
-  config.vm.forward_port 3000, 1234
-  config.vm.forward_port 8080, 1235
+  config.vm.forward_port 8080, 8080
 
   config.vm.share_folder "app", "/home/vagrant/app", "app"
 
