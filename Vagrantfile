@@ -10,23 +10,17 @@ Vagrant::Config.run do |config|
   config.vm.customize ["modifyvm", :id, "--memory", 512, "--cpus", 1]
   
   config.vm.provision :chef_solo do |chef|
-    chef.add_recipe "chef-hosts"
     chef.add_recipe "chef-mongodb"
     chef.add_recipe "nodejs-cookbook"
     chef.add_recipe "git"
     chef.add_recipe "vim"
     chef.add_recipe "phantomjs"
-    chef.add_recipe "imagemagick"
     chef.json = {
       "nodejs" => {
-        "version" => "0.8.12",
+        "version" => "0.8.17",
         "install_method" => "source",
         "npm" => "1.1.62"
-      },
-      "host_aliases" => [{
-        "name" => "awesomeapp",
-        "ip" => "127.0.0.1"
-      }]
+      }
     }
   end
 end
