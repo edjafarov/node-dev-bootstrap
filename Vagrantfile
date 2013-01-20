@@ -18,7 +18,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "phantomjs"
     chef.json = {
       "nodejs" => {
-        "version" => "0.8.17",
+        "version" => "0.8.18",
         "install_method" => "source",
         "npm" => "1.1.62"
       }
