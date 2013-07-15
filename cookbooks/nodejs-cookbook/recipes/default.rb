@@ -21,6 +21,15 @@
 #include_recipe "nodejs::install_from_#{node['nodejs']['install_method']}"
 include_recipe "build-essential"
 
+execute "apt-get-update-periodic" do
+  command "apt-get update"
+  ignore_failure true
+  only_if do
+    File.exists?('/var/lib/apt/periodic/update-success-stamp') &&
+    File.mtime('/var/lib/apt/periodic/update-success-stamp') < Time.now - 86400
+  end
+end
+
 case node['platform']
   when 'centos','redhat','fedora','amazon','scientific'
     package "openssl-devel"
